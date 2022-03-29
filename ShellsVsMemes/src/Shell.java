@@ -4,7 +4,15 @@ public class Shell {
 	private double attackSpeed;
 	private String name;
 
-
+	public Shell() {
+		health = 0;
+		damage = 0;
+		range = 0;
+		attackSpeed = 0.0;
+		name = "";
+	}
+	
+	 
 	public Shell(String name) {
 		if(name == "Snail") { //snail is peeshoota
 			health = 500;
