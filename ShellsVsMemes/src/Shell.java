@@ -1,8 +1,11 @@
 
 public class Shell {
-	private int health, damage, range, cost;
+	private int health, damage, range, cost, x, y;
 	private double attackSpeed;
 	private String name;
+
+	
+
 
 	public Shell() {
 		health = 0;
@@ -10,7 +13,19 @@ public class Shell {
 		range = 0;
 		attackSpeed = 0.0;
 		name = "";
+		
 	}
+	
+	
+	public void Attacking(boolean Attack) {
+		if(Meme.getX() - Shell.getX() < range) {
+			Attack = true;
+		}
+			Attack = false;
+		}
+	
+	
+	
 	
 	public Shell(String name) {
 		if(name == "Snail") { //snail is peeshoota
@@ -58,6 +73,83 @@ public class Shell {
 		}
 	}
 	
-	
+	public int getHealth() {
+		return health;
+	}
+
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+
+	public int getDamage() {
+		return damage;
+	}
+
+
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+
+
+	public int getRange() {
+		return range;
+	}
+
+
+	public void setRange(int range) {
+		this.range = range;
+	}
+
+
+	public int getCost() {
+		return cost;
+	}
+
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+
+	public int getX() {
+		return x;
+	}
+
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+
+	public double getAttackSpeed() {
+		return attackSpeed;
+	}
+
+
+	public void setAttackSpeed(double attackSpeed) {
+		this.attackSpeed = attackSpeed;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 }
