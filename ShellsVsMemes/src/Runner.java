@@ -17,6 +17,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 public class Runner extends JPanel implements KeyListener, ActionListener, MouseListener{
 	//I'm just the shell of a man, and a shell of who I was or could've been
@@ -24,8 +27,8 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	Shell[][] board = new Shell[5][9];
 	
 	public int score;
-	File background = new File("ground.png");
-	
+	Ground background = new Ground();
+
 	
 	
 	
@@ -50,6 +53,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		super.repaint();
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1400, 600);
+		background.paint(g);
 		Color textC = new Color(255, 255, 255);
 		g.setColor(textC);
 		g.drawString("Score: " + score, 500, 500);
@@ -72,11 +76,49 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		t.start();
 		ui.setVisible(true);
 		ui.repaint();
-		
+		ui.setResizable(false);
 	}
 	
-	
-	
+				
+				  
+				
+				class ShellShop {
+				    JFrame f;
+				    JButton b, b1, b2;			  
+				    JLabel l;
+				    
+				 public void bruh(){
+				        // Creating a new frame to store text field and buttons
+				        f = new JFrame("The Shell Shop");
+				        l = new JLabel("Pick a Shell to place");
+				  
+				        //create buttons
+				        b = new JButton("Snail");
+				        b1 = new JButton("Tortoise");
+				        b2 = new JButton("Turtle");
+				  
+				        
+				        JPanel p = new JPanel();
+				  
+				        //add buttons using add method/function (?)
+				        p.add(b);
+				        p.add(b1);
+				        p.add(b2);
+				        p.add(l);
+				  
+				        // set background of panel
+				        p.setBackground(Color.DARK_GRAY);
+				  
+				        // Adding panel to frame
+				        f.add(p);
+				  
+				        // Setting the size of frame
+				        f.setSize(300, 300);
+				  
+				        f.show();
+				    }
+				}
+			
 	
 	
 	public int getScore() {
