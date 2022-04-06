@@ -87,7 +87,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				    JButton b, b1, b2;			  
 				    JLabel l;
 				    
-				 public void bruh(){
+				 public void shop(){
 				        // Creating a new frame to store text field and buttons
 				        f = new JFrame("The Shell Shop");
 				        l = new JLabel("Pick a Shell to place");
