@@ -99,7 +99,10 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				  
 				        
 				        JPanel p = new JPanel();
-				  
+				  	
+				        //layouts??
+				        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
+					
 				        //add buttons using add method/function (?)
 				        p.add(b);
 				        p.add(b1);
