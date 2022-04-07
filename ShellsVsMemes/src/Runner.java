@@ -41,6 +41,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Runner r = new Runner();
+		
 	}
 
 	
@@ -57,9 +58,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		Color textC = new Color(255, 255, 255);
 		g.setColor(textC);
 		g.drawString("Score: " + score, 500, 500);
-		
-		
-		
+	
 		
 	}
 	
@@ -84,29 +83,33 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				
 				class ShellShop {
 				    JFrame f;
-				    JButton b, b1, b2;			  
+				    JButton b, b1, b2, b3;			  
 				    JLabel l;
 				    
 				 public void shop(){
+					 
+					 	Shell temp = new Shell();
 				        // Creating a new frame to store text field and buttons
 				        f = new JFrame("The Shell Shop");
-				        l = new JLabel("Pick a Shell to place");
+				        l = new JLabel("Pick a Shell to place"); 
 				  
 				        //create buttons
 				        b = new JButton("Snail");
 				        b1 = new JButton("Tortoise");
 				        b2 = new JButton("Turtle");
+				        b3 = new JButton("Armadillo");
 				  
 				        
 				        JPanel p = new JPanel();
-				  	
+				        
 				        //layouts??
 				        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-					
+				        
 				        //add buttons using add method/function (?)
 				        p.add(b);
 				        p.add(b1);
 				        p.add(b2);
+				        p.add(b3);
 				        p.add(l);
 				  
 				        // set background of panel
@@ -116,9 +119,10 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				        f.add(p);
 				  
 				        // Setting the size of frame
-				        f.setSize(300, 300);
+				        f.setSize(300, 300);	
 				  
 				        f.show();
+				        
 				    }
 				}
 			
