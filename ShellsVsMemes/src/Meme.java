@@ -18,12 +18,6 @@ public Meme(String name) {
 		range = 2;
 		vx = 10;
 		attackSpeed = 0.7;
-	}else if(name == "Imp") { //fast movement, "low" health
-		health = 500;
-		damage = 30;
-		range = 5;
-		vx = 20;
-		attackSpeed = 5.0;
 	}else if(name == "Harambe") { //ITS HIM!
 		health = 1000;
 		damage = 100;
