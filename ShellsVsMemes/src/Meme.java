@@ -18,18 +18,6 @@ public Meme(String name) {
 		range = 2;
 		vx = 10;
 		attackSpeed = 0.7;
-	}else if(name == "Tortoise") { //Wall-nut
-		health = 750;
-		damage = 0;
-		range = 0;
-		vx = 10;
-		attackSpeed = 0;
-	}else if(name == "Clam") { //Custom
-		health = 500;
-		damage = 100;
-		range = 6;
-		vx = 10;
-		attackSpeed = 1.4;
 	}else if(name == "Imp") { //fast movement, "low" health
 		health = 500;
 		damage = 30;
