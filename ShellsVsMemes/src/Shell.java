@@ -1,172 +1,155 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.io.File;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-
-public class Runner extends JPanel implements KeyListener, ActionListener, MouseListener{
-	//I'm just the shell of a man, and a shell of who I was or could've been
-	
-	Shell[][] board = new Shell[5][9];
-	
-	public int score;
-	Ground background = new Ground();
+public abstract class Shell {
+	private int health, damage, range, cost, x, y;
+	private double attackSpeed;
+	private String name;
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Runner r = new Runner();
-		
-	}
 
-	
-	
-	
-	
-	
-	
-	public void paint(Graphics g) {
-		super.repaint();
-		g.setColor(Color.black);
-		g.fillRect(0, 0, 1400, 600);
-		background.paint(g);
-		Color textC = new Color(255, 255, 255);
-		g.setColor(textC);
-		g.drawString("Score: " + score, 500, 500);
-	
+
+	public Shell(int x, int y, double attackSpeed, int cost, int health, int damage, String name) {
+		this.health = health;
+		this.damage = damage;
+		this.range = range;
+		this.attackSpeed = attackSpeed;
+		this.name = name;
 		
 	}
 	
 	
-	public Runner() {
-		JFrame ui = new JFrame();
-		ui.setSize(1400,600);
-		ui.add(this);
-		
-		ui.addKeyListener(this);
-		ui.addMouseListener(this);
-		ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Timer t = new Timer(16, this);
-		t.start();
-		ui.setVisible(true);
-		ui.repaint();
-		ui.setResizable(false);
-		setVisible(true);
-		
-		
-		JFrame f;
-	    JButton b, b1, b2, b3;			  
-	    JLabel l;
-	    
-		f = new JFrame("The Shell Shop");
-        b = new JButton("Snail");
-        b1 = new JButton("Tortoise");
-        b2 = new JButton("Turtle");
-        b3 = new JButton("Armadillo");
-        JPanel p = new JPanel();
-        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-        p.add(b);
-        p.add(b1);
-        p.add(b2);
-        p.add(b3);
-        p.setBackground(Color.DARK_GRAY);
-        f.add(p);
-        f.setSize(300, 300);	
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        f.setVisible(true);
-	}
-		
-	
-	public int getScore() {
-		return score;
-	}
-	
-	public void setScore(int score) {
-		this.score = score;
-	}
+	//public void Attacking(boolean Attack) {
+	//	if(Meme.getX() - Shell.getX() < range) {
+	//		Attack = true;
+	//	}
+	//		Attack = false;
+	//	}
 	
 	
 	
 	
+	public Shell(String name) {
+		if(name == "Snail") { //snail is peeshoota
+			health = 500;
+			damage = 50;
+			range = 5;
+			cost = 100;
+			attackSpeed = 1.0;
+		}else if(name == "Turtle") {
+			health = 500;
+			damage = 100;
+			range = 4;
+			cost = 125;
+			attackSpeed = 0.7;
+		}else if(name == "Tortoise") { //Wall-nut
+			health = 750;
+			damage = 0;
+			range = 0;
+			cost = 50;
+			attackSpeed = 0;
+		}else if(name == "Clam") { //Custom
+			health = 500;
+			damage = 100;
+			range = 6;
+			cost = 200;
+			attackSpeed = 1.4;
+		}else if(name == "Crab") {
+			health = 750;
+			damage = 100;
+			range = 1;
+			cost = 150;
+			attackSpeed = 1.3;
+		}else if(name == "Queen Conch") { //fast attack, "low" damage
+			health = 500;
+			damage = 30;
+			range = 5;
+			cost = 300;
+			attackSpeed = 5.0;
+		}else if(name == "King Crab") { //better version of crab
+			health = 750;
+			damage = 100;
+			range = 2;
+			cost = 500;
+			attackSpeed = 3.0;
+		}
+	}
 	
+	public int getHealth() {
+		return health;
+	}
+
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+
+	public int getDamage() {
+		return damage;
+	}
+
+
+	public void setDamage(int damage) {
+		this.damage = damage;
+	}
+
+
+	public int getRange() {
+		return range;
+	}
+
+
+	public void setRange(int range) {
+		this.range = range;
+	}
+
+
+	public int getCost() {
+		return cost;
+	}
+
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+
+	public int getX() {
+		return x;
+	}
+
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+
+	public double getAttackSpeed() {
+		return attackSpeed;
+	}
+
+
+	public void setAttackSpeed(double attackSpeed) {
+		this.attackSpeed = attackSpeed;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
