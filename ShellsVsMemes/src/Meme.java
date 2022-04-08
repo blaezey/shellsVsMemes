@@ -6,13 +6,13 @@ public class Meme {
 
 
 public Meme(String name) {
-	if(name == "Troll") { //snail is peeshoota
+	if(name == "Troll") { //troll is basic
 		health = 500;
 		damage = 50;
 		range = 2;
 		vx = 10;
 		attackSpeed = 1.0;
-	}else if(name == "Doge") {
+	}else if(name == "Doge") { //doge is conehead/bucket/heavy
 		health = 750;
 		damage = 50;
 		range = 2;
