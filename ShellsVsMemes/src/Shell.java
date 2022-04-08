@@ -1,5 +1,5 @@
 
-public class Shell {
+public abstract class Shell {
 	private int health, damage, range, cost, x, y;
 	private double attackSpeed;
 	private String name;
@@ -7,22 +7,22 @@ public class Shell {
 	
 
 
-	public Shell() {
-		health = 0;
-		damage = 0;
-		range = 0;
-		attackSpeed = 0.0;
-		name = "";
+	public Shell(int x, int y, double attackSpeed, int cost, int health, int damage, String name) {
+		this.health = health;
+		this.damage = damage;
+		this.range = range;
+		this.attackSpeed = attackSpeed;
+		this.name = name;
 		
 	}
 	
 	
-	public void Attacking(boolean Attack) {
-		if(Meme.getX() - Shell.getX() < range) {
-			Attack = true;
-		}
-			Attack = false;
-		}
+	//public void Attacking(boolean Attack) {
+	//	if(Meme.getX() - Shell.getX() < range) {
+	//		Attack = true;
+	//	}
+	//		Attack = false;
+	//	}
 	
 	
 	
