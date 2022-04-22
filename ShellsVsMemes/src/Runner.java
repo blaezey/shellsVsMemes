@@ -28,7 +28,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	
 	public int score;
 	Ground background = new Ground();
-
+	Shop snailshop = new Shop();
 
 	
 	
@@ -46,9 +46,10 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	
 	public void paint(Graphics g) {
 		super.repaint();
-		g.setColor(Color.black);
+		g.setColor(Color.darkGray);
 		g.fillRect(0, 0, 1400, 600);
 		background.paint(g);
+		snailshop.paint(g);
 		Color textC = new Color(255, 255, 255);
 		g.setColor(textC);
 		g.drawString("Score: " + score, 500, 500);
@@ -59,7 +60,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	
 	public Runner() {
 		JFrame ui = new JFrame();
-		ui.setSize(1400,600);
+		ui.setSize(1400,750);
 		ui.add(this);
 		
 		ui.addKeyListener(this);
@@ -72,26 +73,6 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		ui.setResizable(false);
 		setVisible(true);
 		
-		
-		JFrame f;
-	    JButton b, b1, b2, b3;			  
-	    JLabel l;
-		f = new JFrame("The Shell Shop");
-        b = new JButton("Snail");
-        b1 = new JButton("Tortoise");
-        b2 = new JButton("Turtle");
-        b3 = new JButton("Armadillo");
-        JPanel p = new JPanel();
-        p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-        p.add(b);
-        p.add(b1);
-        p.add(b2);
-        p.add(b3);
-        p.setBackground(Color.DARK_GRAY);
-        f.add(p);
-        f.setSize(300, 300);	
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-        f.setVisible(true);
 	}
 		
 	
