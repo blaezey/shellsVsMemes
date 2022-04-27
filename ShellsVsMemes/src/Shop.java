@@ -67,7 +67,7 @@ public class Shop {
 		return tempImage;
 	}
 	
-	
+	//
 	private void init(int x, int y) {
 		txTor.setToTranslation(TorX, TorY);
 		txTur.setToTranslation(TurX, TurY);
