@@ -21,22 +21,23 @@ public class Shop {
 	
 	
 	public Shop() {
-		Tortoise = getImage("/imgs/tortoise.gif");
+		//Tortoise = getImage("/imgs/tortoise.gif");
+		
 		Turtle = getImage("/imgs/turtle.gif");
 		Arma = getImage("/imgs/armadillo.png");
 		Snail = getImage("/imgs/snail.gif");
 		
-		TorX = 0;
-		TorY = 0;
+		//TorX = 0;
+		//TorY = 0;
 		
-		TurX = 0;
-		TurY = 0;
+		TurX = 100;
+		TurY = -20;
 		
-		ArmX = 0;
-		ArmY = 0;
+		ArmX = 325;
+		ArmY = 30;
 		
-		SnaX = 0;
-		SnaY = 0;
+		SnaX = 500;
+		SnaY = -30;
 	}
 	
 	
@@ -73,10 +74,10 @@ public class Shop {
 		txTur.setToTranslation(TurX, TurY);
 		txArm.setToTranslation(ArmX, ArmY);
 		txSna.setToTranslation(SnaX, SnaY);
-		txTor.scale(0.01,0.01);
-		txTur.scale(0.01,0.01);
-		txArm.scale(0.01,0.01);
-		txSna.scale(0.01,0.01);
+		//txTor.scale(0.01,0.01);
+		//txTur.scale(0.01,0.01);
+		//txArm.scale(0.01,0.01);
+		//txSna.scale(0.01,0.01);
 	}
 	
 	
