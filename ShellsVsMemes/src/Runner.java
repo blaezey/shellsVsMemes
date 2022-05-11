@@ -27,7 +27,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	Shell[][] board = new Shell[5][9];
 	
 	public int score;
-	Ground background = new Ground();
+	Background background = new Background();
 	Shop snailshop = new Shop();
 
 	
@@ -52,7 +52,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		snailshop.paint(g);
 		Color textC = new Color(255, 255, 255);
 		g.setColor(textC);
-		g.drawString("Score: " + score, 500, 500);
+		g.drawString("Score: " + score, 1150, 650);
 	
 		
 	}
