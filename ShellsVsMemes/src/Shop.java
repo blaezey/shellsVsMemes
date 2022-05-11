@@ -6,13 +6,16 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Shop {
-	private Image Tortoise,Turtle,Arma,Snail;
-	private int TorX,TorY,TurX,TurY,ArmX,ArmY,SnaX,SnaY;
+	private Image Tortoise,Turtle,Arma,Snail,Clam,GemTurtle,OmegaTurtle;
+	private int TorX,TorY,TurX,TurY,ArmX,ArmY,SnaX,SnaY,ClamX,ClamY,GemX,GemY,OmeX,OmeY;
 	private int x,y;
 	private AffineTransform txTor = AffineTransform.getTranslateInstance(TorX, TorY);
 	private AffineTransform txTur = AffineTransform.getTranslateInstance(TurX, TurY);
 	private AffineTransform txArm = AffineTransform.getTranslateInstance(ArmX, ArmY);
 	private AffineTransform txSna = AffineTransform.getTranslateInstance(SnaX, SnaY);
+	private AffineTransform txClam = AffineTransform.getTranslateInstance(ClamX, ClamY);
+	private AffineTransform txGem = AffineTransform.getTranslateInstance(GemX, GemY);
+	private AffineTransform txOme = AffineTransform.getTranslateInstance(OmeX, OmeY);
 	private static int scoreCount = 0;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,6 +29,11 @@ public class Shop {
 		Turtle = getImage("/imgs/turtle.gif");
 		Arma = getImage("/imgs/armadillo.png");
 		Snail = getImage("/imgs/snail.gif");
+		Clam = getImage("/imgs/clam.gif");
+		GemTurtle = getImage("/imgs/gemturtle.gif");
+		OmegaTurtle = getImage("/imgs/omegaturtle.gif");
+		
+		
 		
 		//TorX = 0;
 		//TorY = 0;
@@ -38,6 +46,8 @@ public class Shop {
 		
 		SnaX = 500;
 		SnaY = -30;
+		
+		//add icons for clam, gem, omega
 	}
 	
 	
