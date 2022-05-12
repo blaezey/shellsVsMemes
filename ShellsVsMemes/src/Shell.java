@@ -1,5 +1,5 @@
 
-public abstract class Shell {
+public class Shell {
 	private int health, damage, range, cost, x, y;
 	private double attackSpeed;
 	private String name;
@@ -7,23 +7,23 @@ public abstract class Shell {
 	
 
 
-	public Shell(int x, int y, double attackSpeed, int cost, int health, int damage, String name) {
-		this.health = health;
-		this.damage = damage;
-		this.range = range;
-		this.attackSpeed = attackSpeed;
-		this.name = name;
+	public Shell() {
+		health = 0;
+		damage = 0;
+		range = 0;
+		attackSpeed = 0.0;
+		name = "";
 		
 	}
 	
 	
-	//public void Attacking(boolean Attack) {
-	//	if(Meme.getX() - Shell.getX() < range) {
-	//		Attack = true;
-	//	}
-	//		Attack = false;
-	//	}
-	
+//	public void Attacking(boolean Attack) {
+//		if(Meme.getX() - Shell.getX() < range) {
+//			Attack = true;
+//		}else {
+//			Attack = false;
+//		}
+//	}
 	
 	
 	
@@ -40,6 +40,24 @@ public abstract class Shell {
 			range = 4;
 			cost = 125;
 			attackSpeed = 0.7;
+		}else if(name == "Omega Turtle") {
+			health = 600;
+			damage = 200;
+			range = 8;
+			cost = 225;
+			attackSpeed = 0.7;
+		}else if(name == "Gem Turtle") {
+			health = 750;
+			damage = 75;
+			range = 5;
+			cost = 200;
+			attackSpeed = 1.0;
+		}else if(name == "Armadillo") {
+			health = 1000;
+			damage = 50;
+			range = 2;
+			cost = 150;
+			attackSpeed = 1.5;
 		}else if(name == "Tortoise") { //Wall-nut
 			health = 750;
 			damage = 0;
@@ -70,8 +88,19 @@ public abstract class Shell {
 			range = 2;
 			cost = 500;
 			attackSpeed = 3.0;
+		}else {
+			health = 500;
+			damage = 50;
+			range = 5;
+			cost = 100;
+			attackSpeed = 1.0;
 		}
 	}
+	
+	public String getStats() {
+		return name+" "+health;
+	}
+	
 	
 	public int getHealth() {
 		return health;
