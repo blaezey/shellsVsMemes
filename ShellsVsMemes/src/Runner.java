@@ -29,12 +29,17 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	public int score;
 	Background background = new Background();
 	Shop snailshop = new Shop();
-
+	Shell select = null;
+	
+	
 	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Runner r = new Runner();
+		
+		
+		
 		
 	}
 
@@ -92,6 +97,36 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		if(select==null) {
+			if(arg0.getX()>=146 && arg0.getX()<=228 && arg0.getY()>=61 && arg0.getY()<=132) {
+				select = new Shell("Omega Turtle");
+			}else if(arg0.getX()>=246 && arg0.getX()<=328 && arg0.getY()>=57 && arg0.getY()<=133) {
+				select = new Shell("Gem Turtle");
+			}else if(arg0.getX()>=346 && arg0.getX()<=419 && arg0.getY()>=54 && arg0.getY()<=132) {
+				select = new Shell("Armadillo");
+			}else if(arg0.getX()>=441 && arg0.getX()<=516 && arg0.getY()>=58 && arg0.getY()<=137) {
+				select = new Shell("Clam");
+			}else if(arg0.getX()>=536 && arg0.getX()<=610 && arg0.getY()>=57 && arg0.getY()<=135) {
+				select = new Shell("Snail");
+			}else {
+				select = null;
+			}
+		}else {
+			if(!(arg0.getX()>=146 && arg0.getX()<=908 && arg0.getY()>=61 && arg0.getY()<=144) && !(arg0.getX()>=258 && arg0.getX()<=991 && arg0.getY()>=254 && arg0.getY()<=742)) {
+				select = null;
+			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=255 && arg0.getY()<=348) {
+				//set board square to select
+				board[0][0] = select;
+				select = null;
+			}else {
+				select = null;
+			}
+		}
+		
+		
+		System.out.println(arg0.getX() +" "+arg0.getY());
+		System.out.println(select.getStats());
+		
 		
 	}
 
