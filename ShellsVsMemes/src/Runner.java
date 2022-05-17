@@ -58,7 +58,15 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		Color textC = new Color(255, 255, 255);
 		g.setColor(textC);
 		g.drawString("Score: " + score, 1150, 650);
-	
+		
+		for(int i = 0; i < board.length; i++) {
+			for(int j = 0; j < board[0].length; j++) {
+				if(board[i][j]!=null) {
+					board[i][j].paint(g);
+				}
+			}
+		}
+		
 		
 	}
 	
@@ -67,6 +75,10 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		JFrame ui = new JFrame();
 		ui.setSize(1400,750);
 		ui.add(this);
+		
+		
+		
+		
 		
 		ui.addKeyListener(this);
 		ui.addMouseListener(this);
@@ -99,15 +111,15 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		// TODO Auto-generated method stub
 		if(select==null) {
 			if(arg0.getX()>=146 && arg0.getX()<=228 && arg0.getY()>=61 && arg0.getY()<=132) {
-				select = new Shell("Omega Turtle");
+				select = new Shell("Omega Turtle", 0, 0);
 			}else if(arg0.getX()>=246 && arg0.getX()<=328 && arg0.getY()>=57 && arg0.getY()<=133) {
-				select = new Shell("Gem Turtle");
+				select = new Shell("Gem Turtle", 0, 0);
 			}else if(arg0.getX()>=346 && arg0.getX()<=419 && arg0.getY()>=54 && arg0.getY()<=132) {
-				select = new Shell("Armadillo");
+				select = new Shell("Armadillo", 0, 0);
 			}else if(arg0.getX()>=441 && arg0.getX()<=516 && arg0.getY()>=58 && arg0.getY()<=137) {
-				select = new Shell("Clam");
+				select = new Shell("Clam", 0, 0);
 			}else if(arg0.getX()>=536 && arg0.getX()<=610 && arg0.getY()>=57 && arg0.getY()<=135) {
-				select = new Shell("Snail");
+				select = new Shell("Snail", 0, 0);
 			}else {
 				select = null;
 			}
@@ -117,6 +129,21 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=255 && arg0.getY()<=348) {
 				//set board square to select
 				board[0][0] = select;
+				board[0][0].setOmeX(259);
+				board[0][0].setOmeY(255);
+				select = null;
+			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=244 && arg0.getY()<=348) {
+				//set board square to select
+				board[1][0] = select;
+				board[1][0].setOmeX(339);
+				board[1][0].setOmeY(244);
+				select = null;
+			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=247 && arg0.getY()<=348) {
+				//set board square to select
+				board[2][0] = select;
+				board[2][0].setOmeX(418);
+				board[2][0].setOmeY(247);
+				
 				select = null;
 			}else {
 				select = null;
@@ -125,7 +152,8 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		
 		
 		System.out.println(arg0.getX() +" "+arg0.getY());
-		System.out.println(select.getStats());
+		if(select != null) System.out.println(select.getName());
+		
 		
 		
 	}
