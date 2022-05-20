@@ -6,7 +6,7 @@ import java.awt.geom.AffineTransform;
 import java.net.URL;
 
 public class Shell {
-	private int health, damage, range, cost, x, y;
+	private int health, currHealth, damage, range, cost, x, y;
 	private double attackSpeed;
 	private String name;
 	private Image Tortoise,Turtle,Arma,Snail,Clam,GemTurtle,OmegaTurtle;
@@ -21,7 +21,8 @@ public class Shell {
 
 
 	public Shell() {
-		health = 0;
+		health = 1;
+		currHealth = 1;
 		damage = 0;
 		range = 0;
 		attackSpeed = 0.0;
@@ -47,6 +48,9 @@ public class Shell {
 //			Attack = false;
 //		}
 //	}
+	
+	
+	
 	
 	
 	
@@ -144,8 +148,17 @@ public class Shell {
 			cost = 100;
 			attackSpeed = 1.0;
 		}
+		currHealth = health;
 	}
 	
+	public int getCurrHealth() {
+		return currHealth;
+	}
+
+	public void setCurrHealth(int currHealth) {
+		this.currHealth = currHealth;
+	}
+
 	public Image getTortoise() {
 		return Tortoise;
 	}
