@@ -12,6 +12,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,6 +26,8 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	//I'm just the shell of a man, and a shell of who I was or could've been
 	
 	Shell[][] board = new Shell[5][9];
+	ArrayList<Meme> enemies = new ArrayList<Meme>();
+	Meme enemy;
 	
 	public int score;
 	Background background = new Background();
@@ -59,6 +62,8 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		g.setColor(textC);
 		g.drawString("Score: " + score, 1150, 650);
 		
+		
+		
 		for(int i = 0; i < board.length; i++) {
 			for(int j = 0; j < board[0].length; j++) {
 				if(board[i][j]!=null) {
@@ -66,6 +71,17 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				}
 			}
 		}
+		
+		if(enemies.isEmpty()==false) {
+			for(int i = 0; i < enemies.size(); i++) {
+				enemies.get(i).paint(g);
+			}
+		}
+		
+
+		
+		
+		
 		
 		
 	}
@@ -191,7 +207,13 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		if(arg0.getKeyCode()==69) {
+			enemies.add(new Meme("Troll"));
+			int row = (int)(Math.random()*5);
+			enemies.get(enemies.size()-1).spawn(row);
+			
+			
+		}
 	}
 
 	@Override
