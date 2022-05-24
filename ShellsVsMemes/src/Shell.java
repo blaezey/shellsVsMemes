@@ -62,6 +62,8 @@ public class Shell {
 		GemTurtle = getImage("/imgs/gemturtle.gif");
 		OmegaTurtle = getImage("/imgs/omegaturtle.gif");
 		
+		this.name = name;
+		
 		TurX = 100;
 		TurY = -20;
 		
@@ -386,7 +388,28 @@ public class Shell {
 	public void paint(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;	
 		txOme.setToTranslation(OmeX, OmeY);
-		g2.drawImage(OmegaTurtle, txOme, null);
+		txTur.setToTranslation(TurX, TurY);
+		txArm.setToTranslation(ArmX, ArmY);
+		txSna.setToTranslation(SnaX, SnaY);
+		txClam.setToTranslation(ClamX, ClamY);
+		txGem.setToTranslation(GemX, GemY);
+		
+		if(name == "Omega Turtle") {
+			g2.drawImage(OmegaTurtle, txOme, null);
+		}else if(name == "Turtle"){
+			g2.drawImage(Turtle, txTur, null);
+		}else if(name == "Gem Turtle"){
+			g2.drawImage(GemTurtle, txGem, null);
+		}else if(name == "Snail"){
+			g2.drawImage(Snail, txSna, null);
+		}else if(name == "Armadillo"){
+			g2.drawImage(Arma, txArm, null);
+		}else if(name == "Clam"){
+			g2.drawImage(Clam, txClam, null);
+		}else{
+			g2.drawImage(OmegaTurtle, txOme, null);
+		}
+		
 			
 		
 		
@@ -444,6 +467,14 @@ public class Shell {
 
 
 	public void setX(int x) {
+		TorX = x;
+		TurX = x;
+		ArmX = x;
+		SnaX = x;
+		ClamX = x;
+		GemX = x;
+		OmeX = x;
+		
 		this.x = x;
 	}
 
@@ -454,6 +485,15 @@ public class Shell {
 
 
 	public void setY(int y) {
+		TorY = y;
+		TurY = y;
+		ArmY = y;
+		SnaY = y;
+		ClamY = y;
+		GemY = y;
+		OmeY = y;
+		
+		
 		this.y = y;
 	}
 
