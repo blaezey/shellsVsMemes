@@ -53,8 +53,8 @@ public class Shop {
 		GemX = 250;
 		GemY = 10;
 		
-		OmeX = 150; 
-		OmeY = 43;
+		OmeX = 640; 
+		OmeY = 60;
 		
 		
 		
