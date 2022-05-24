@@ -29,7 +29,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	ArrayList<Meme> enemies = new ArrayList<Meme>();
 	Meme enemy;
 	
-	int sun = 0;
+	int sun = 1000;
 	public int score;
 	Background ground = new Background();
 	Shop snailshop = new Shop();
@@ -64,7 +64,16 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		g.drawString("Score: " + score, 1150, 650);
 		g.setColor(Color.black);
 		g.setFont(new Font("Helvetica", 5, 20));
-		g.drawString(sun+"", 59, 135);
+		g.drawString(sun+"", 40, 135);
+		g.setFont(new Font("Helvetica", 5, 15));
+		g.setColor(Color.white);
+		g.drawString("---", 180, 130);
+		g.drawString("200", 275, 130);
+		g.drawString("150", 370, 130);
+		g.drawString("200", 465, 130);
+		g.drawString("100", 560, 130);
+		g.drawString("225", 660, 130);
+		
 		
 		
 		for(int i = 0; i < board.length; i++) {
@@ -79,6 +88,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		if(enemies.isEmpty()==false) {
 			for(int i = 0; i < enemies.size(); i++) {
 				enemies.get(i).paint(g);
+				if(enemies.get(i).getTrollX()<=210) enemies.remove(i);
 			}
 			for(int z = enemies.size()-1; z > 0; z--) {
 				for(int i = 0; i < board.length; i++) {
@@ -163,45 +173,60 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				select = null;
 			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=255 && arg0.getY()<=348) {
 				//set board square to select
-				board[0][0] = select;
-				board[0][0].setX(259);
-				board[0][0].setY(255);
-				select = null;
+				if(sun>=select.getCost()) {
+					board[0][0] = select;
+					board[0][0].setX(259);
+					board[0][0].setY(255);
+					sun -= select.getCost();
+					select = null;
+				}
+				
 			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=244 && arg0.getY()<=348) {
 				//set board square to select
-				board[1][0] = select;
-				board[1][0].setX(339);
-				board[1][0].setY(244);
-				select = null;
+				if(sun>=select.getCost()) {
+					board[1][0] = select;
+					board[1][0].setX(339);
+					board[1][0].setY(244);
+					sun -= select.getCost();
+					select = null;
+				}
+				
+				
 			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=247 && arg0.getY()<=348) {
 				//set board square to select
 				board[2][0] = select;
+				sun -= select.getCost();
 				board[2][0].setX(418);
 				board[2][0].setY(247);
 				
 				select = null;
 			}else if(arg0.getX()>=505 && arg0.getX()<=574 && arg0.getY()>=247 && arg0.getY()<=348){
 				board[3][0] = select;
+				sun -= select.getCost();
 				board[3][0].setX(505);
 				board[3][0].setY(247);
 				select = null;
 			}else if(arg0.getX()>=584 && arg0.getX()<=653 && arg0.getY()>=247 && arg0.getY()<=348){
 				board[4][0] = select;
 				board[4][0].setX(584);
+				sun -= select.getCost();
 				board[4][0].setY(247);
 				select = null;
 			}else if(arg0.getX()>=663 && arg0.getX()<=732 && arg0.getY()>=247 && arg0.getY()<=348){
 				board[5][0] = select;
 				board[5][0].setX(663);
+				sun -= select.getCost();
 				board[5][0].setY(247);
 				select = null;
 			}else if(arg0.getX()>=742 && arg0.getX()<=811 && arg0.getY()>=247 && arg0.getY()<=348){
 				board[6][0] = select;
+				sun -= select.getCost();
 				board[6][0].setX(742);
 				board[6][0].setY(247);
 				select = null;
 			}else if(arg0.getX()>=821 && arg0.getX()<=890 && arg0.getY()>=247 && arg0.getY()<=348){
 				board[7][0] = select;
+				sun -= select.getCost();
 				board[7][0].setX(821);
 				board[7][0].setY(247);
 				select = null;
@@ -209,18 +234,21 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				board[8][0] = select;
 				board[8][0].setX(900);
 				board[8][0].setY(247);
+				sun -= select.getCost();
 				select = null;
 			//SECOND ROW BELOW======================================================================
 			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=360 && arg0.getY()<=460) {
 				//1
 				board[0][1] = select;
 				board[0][1].setX(259);
+				sun -= select.getCost();
 				board[0][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=360 && arg0.getY()<=460) {
 				//set board square to select
 				board[1][1] = select;
 				board[1][1].setX(339);
+				sun -= select.getCost();
 				board[1][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=360 && arg0.getY()<=460) {
@@ -229,36 +257,43 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				board[2][1].setX(418);
 				board[2][1].setY(350);
 				
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=505 && arg0.getX()<=574 && arg0.getY()>=360 && arg0.getY()<=460){
 				//set board square to select
 				board[3][1] = select;
+				sun -= select.getCost();
 				board[3][1].setX(500);
 				board[3][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=584 && arg0.getX()<=653 && arg0.getY()>=360 && arg0.getY()<=460){
 				board[4][1] = select;
 				board[4][1].setX(570);
+				sun -= select.getCost();
 				board[4][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=663 && arg0.getX()<=732 && arg0.getY()>=360 && arg0.getY()<=460){
 				board[5][1] = select;
 				board[5][1].setX(663);
+				sun -= select.getCost();
 				board[5][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=742 && arg0.getX()<=811 && arg0.getY()>=360 && arg0.getY()<=460){
 				board[6][1] = select;
+				sun -= select.getCost();
 				board[6][1].setX(742);
 				board[6][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=821 && arg0.getX()<=890 && arg0.getY()>=360 && arg0.getY()<=460){
 				board[7][1] = select;
+				sun -= select.getCost();
 				board[7][1].setX(821);
 				board[7][1].setY(350);
 				select = null;
 			}else if(arg0.getX()>=900 && arg0.getX()<=969 && arg0.getY()>=360 && arg0.getY()<=460){
 				board[8][1] = select;
 				board[8][1].setX(900);
+				sun -= select.getCost();
 				board[8][1].setY(350);
 				select = null;
 				//START OF THIRD ROW===============================================================================
@@ -266,114 +301,136 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				//1
 				board[0][2] = select;
 				board[0][2].setX(259);
+				sun -= select.getCost();
 				board[0][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=462 && arg0.getY()<=550) {
 				//set board square to select
 				board[1][2] = select;
 				board[1][2].setX(339);
+				sun -= select.getCost();
 				board[1][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=462 && arg0.getY()<=550) {
 				//3
 				board[2][2] = select;
 				board[2][2].setX(418);
+				sun -= select.getCost();
 				board[2][2].setY(462);
 				
 				select = null;
+				
 			}else if(arg0.getX()>=505 && arg0.getX()<=574 && arg0.getY()>=462 && arg0.getY()<=550){
 				//set board square to select
 				board[3][2] = select;
 				board[3][2].setX(500);
 				board[3][2].setY(462);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=584 && arg0.getX()<=653 && arg0.getY()>=462 && arg0.getY()<=550){
 				board[4][2] = select;
+				sun -= select.getCost();
 				board[4][2].setX(580);
 				board[4][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=663 && arg0.getX()<=732 && arg0.getY()>=462 && arg0.getY()<=550){
 				board[5][2] = select;
+				sun -= select.getCost();
 				board[5][2].setX(663);
 				board[5][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=742 && arg0.getX()<=811 && arg0.getY()>=462 && arg0.getY()<=550){
 				board[6][2] = select;
+				sun -= select.getCost();
 				board[6][2].setX(742);
 				board[6][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=821 && arg0.getX()<=890 && arg0.getY()>=462 && arg0.getY()<=550){
 				board[7][2] = select;
+				sun -= select.getCost();
 				board[7][2].setX(821);
 				board[7][2].setY(462);
 				select = null;
 			}else if(arg0.getX()>=900 && arg0.getX()<=969 && arg0.getY()>=462 && arg0.getY()<=550){
 				board[8][2] = select;
 				board[8][2].setX(900);
+				sun -= select.getCost();
 				board[8][2].setY(462);
 				select = null;
+				
 				//START OF 4TH ROW===============================================================================
 			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=560 && arg0.getY()<=650) {
 				//1
 				board[0][3] = select;
 				board[0][3].setX(259);
 				board[0][3].setY(560);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=560 && arg0.getY()<=650) {
 				//set board square to select
 				board[1][3] = select;
 				board[1][3].setX(339);
 				board[1][3].setY(560);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=560 && arg0.getY()<=650) {
 				//3
 				board[2][3] = select;
 				board[2][3].setX(418);
 				board[2][3].setY(560);
+				sun -= select.getCost();
 				
 				select = null;
 			}else if(arg0.getX()>=505 && arg0.getX()<=574 && arg0.getY()>=560 && arg0.getY()<=650){
 				//set board square to select
 				board[3][3] = select;
 				board[3][3].setX(500);
+				sun -= select.getCost();
 				board[3][3].setY(560);
 				select = null;
 			}else if(arg0.getX()>=584 && arg0.getX()<=653 && arg0.getY()>=560 && arg0.getY()<=650){
 				board[4][3] = select;
 				board[4][3].setX(580);
+				sun -= select.getCost();
 				board[4][3].setY(560);
 				select = null;
 			}else if(arg0.getX()>=663 && arg0.getX()<=732 && arg0.getY()>=560 && arg0.getY()<=650){
 				board[5][3] = select;
 				board[5][3].setX(663);
+				sun -= select.getCost();
 				board[5][3].setY(560);
 				select = null;
 			}else if(arg0.getX()>=742 && arg0.getX()<=811 && arg0.getY()>=560 && arg0.getY()<=650){
 				board[6][3] = select;
+				sun -= select.getCost();
 				board[6][3].setX(742);
 				board[6][3].setY(560);
 				select = null;
 			}else if(arg0.getX()>=821 && arg0.getX()<=890 && arg0.getY()>=560 && arg0.getY()<=650){
 				board[7][3] = select;
 				board[7][3].setX(821);
+				sun -= select.getCost();
 				board[7][3].setY(560);
 				select = null;
 			}else if(arg0.getX()>=900 && arg0.getX()<=969 && arg0.getY()>=560 && arg0.getY()<=650){
 				board[8][3] = select;
 				board[8][3].setX(900);
 				board[8][3].setY(560);
+				sun -= select.getCost();
 				select = null;
 				//LAST ROW YEAHHHH BABYYYY===============================================================================
 			}else if(arg0.getX()>=259 && arg0.getX()<=336 && arg0.getY()>=655 && arg0.getY()<=750) {
 				//1
 				board[0][4] = select;
 				board[0][4].setX(259);
+				sun -= select.getCost();
 				board[0][4].setY(655);
 				select = null;
 			}else if(arg0.getX()>=339 && arg0.getX()<=408 && arg0.getY()>=655 && arg0.getY()<=750) {
 				//set board square to select
 				board[1][4] = select;
 				board[1][4].setX(339);
+				sun -= select.getCost();
 				board[1][4].setY(655);
 				select = null;
 			}else if(arg0.getX()>=418 && arg0.getX()<=495 && arg0.getY()>=655 && arg0.getY()<=750) {
@@ -381,38 +438,45 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 				board[2][4] = select;
 				board[2][4].setX(418);
 				board[2][4].setY(655);
+				sun -= select.getCost();
 				
 				select = null;
 			}else if(arg0.getX()>=505 && arg0.getX()<=574 && arg0.getY()>=655 && arg0.getY()<=750){
 				//set board square to select
 				board[3][4] = select;
 				board[3][4].setX(500);
+				sun -= select.getCost();
 				board[3][4].setY(655);
 				select = null;
 			}else if(arg0.getX()>=584 && arg0.getX()<=653 && arg0.getY()>=655 && arg0.getY()<=750){
 				board[4][4] = select;
 				board[4][4].setX(580);
 				board[4][4].setY(655);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=663 && arg0.getX()<=732 && arg0.getY()>=655 && arg0.getY()<=750){
 				board[5][4] = select;
 				board[5][4].setX(663);
 				board[5][4].setY(655);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=742 && arg0.getX()<=811 && arg0.getY()>=655 && arg0.getY()<=750){
 				board[6][4] = select;
 				board[6][4].setX(742);
 				board[6][4].setY(655);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=821 && arg0.getX()<=890 && arg0.getY()>=655 && arg0.getY()<=750){
 				board[7][4] = select;
 				board[7][4].setX(821);
 				board[7][4].setY(655);
+				sun -= select.getCost();
 				select = null;
 			}else if(arg0.getX()>=900 && arg0.getX()<=969 && arg0.getY()>=655 && arg0.getY()<=750){
 				board[8][4] = select;
 				board[8][4].setX(900);
 				board[8][4].setY(655);
+				sun -= select.getCost();
 				select = null;
 			}else {
 				select = null;
