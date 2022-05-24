@@ -33,7 +33,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 	Ground background = new Ground();
 	Shop snailshop = new Shop();
 	Shell select = null;
-	
+	Music m = new Music("heat.wav", false);
 	
 	
 	
@@ -105,7 +105,7 @@ public class Runner extends JPanel implements KeyListener, ActionListener, Mouse
 		ui.repaint();
 		ui.setResizable(false);
 		setVisible(true);
-		
+		m.play();
 	}
 		
 	
