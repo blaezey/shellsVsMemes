@@ -23,19 +23,19 @@ public Meme(String name) {
 	alive = false;
 	if(name == "Troll") { //troll is basic
 		health = 500;
-		damage = 50;
+		damage = 1;
 		range = 2;
 		vx = 1.0;
 		attackSpeed = 1.0;
 	}else if(name == "Doge") { //doge is conehead/bucket/heavy
 		health = 750;
-		damage = 50;
+		damage = 2;
 		range = 2;
 		vx = 1.0;
 		attackSpeed = 0.7;
 	}else if(name == "Harambe") { //ITS HIM!
 		health = 1000;
-		damage = 100;
+		damage = 5;
 		range = 2;
 		vx = 0.2;
 		attackSpeed = 0.75;
@@ -53,7 +53,14 @@ private void update() {
 	trollX -= vx/5;
 }
 
-
+public boolean collision(Shell plant) {
+	if((plant.getX()<trollX && plant.getX()+80>= trollX) &&(plant.getY()-50<=trollY && plant.getY()+20>= trollY)) {
+		x += 1;
+		return true;
+	}else {
+		return false;
+	}
+}
 
 
 
@@ -79,6 +86,171 @@ public void paint(Graphics g) {
 	
 	
 }
+
+public int getHealth() {
+	return health;
+}
+
+public void setHealth(int health) {
+	this.health = health;
+}
+
+public int getCurrHealth() {
+	return currHealth;
+}
+
+public void setCurrHealth(int currHealth) {
+	this.currHealth = currHealth;
+}
+
+public int getDamage() {
+	return damage;
+}
+
+public void setDamage(int damage) {
+	this.damage = damage;
+}
+
+public int getRange() {
+	return range;
+}
+
+public void setRange(int range) {
+	this.range = range;
+}
+
+public int getX() {
+	return x;
+}
+
+public void setX(int x) {
+	this.x = x;
+}
+
+public int getY() {
+	return y;
+}
+
+public void setY(int y) {
+	this.y = y;
+}
+
+public double getAttackSpeed() {
+	return attackSpeed;
+}
+
+public void setAttackSpeed(double attackSpeed) {
+	this.attackSpeed = attackSpeed;
+}
+
+public double getVx() {
+	return vx;
+}
+
+public void setVx(double vx) {
+	this.vx = vx;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public boolean isAlive() {
+	return alive;
+}
+
+public void setAlive(boolean alive) {
+	this.alive = alive;
+}
+
+public Image getTroll() {
+	return troll;
+}
+
+public void setTroll(Image troll) {
+	this.troll = troll;
+}
+
+public Image getDoge() {
+	return doge;
+}
+
+public void setDoge(Image doge) {
+	this.doge = doge;
+}
+
+public Image getHarambe() {
+	return harambe;
+}
+
+public void setHarambe(Image harambe) {
+	this.harambe = harambe;
+}
+
+public int getTrollX() {
+	return trollX;
+}
+
+public void setTrollX(int trollX) {
+	this.trollX = trollX;
+}
+
+public int getTrollY() {
+	return trollY;
+}
+
+public void setTrollY(int trollY) {
+	this.trollY = trollY;
+}
+
+public int getDogeX() {
+	return dogeX;
+}
+
+public void setDogeX(int dogeX) {
+	this.dogeX = dogeX;
+}
+
+public int getDogeY() {
+	return dogeY;
+}
+
+public void setDogeY(int dogeY) {
+	this.dogeY = dogeY;
+}
+
+public int getHarX() {
+	return harX;
+}
+
+public void setHarX(int harX) {
+	this.harX = harX;
+}
+
+public int getHarY() {
+	return harY;
+}
+
+public void setHarY(int harY) {
+	this.harY = harY;
+}
+
+public AffineTransform getTxTroll() {
+	return txTroll;
+}
+
+public void setTxTroll(AffineTransform txTroll) {
+	this.txTroll = txTroll;
+}
+
+
+
+
+
 
 
 }
